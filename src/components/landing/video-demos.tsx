@@ -5,10 +5,12 @@ import { Play } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 /* ============================================================
-   CONFIG DES DÉMOS — IDENTIQUE À AVANT
+   CONFIG DES 5 DÉMOS
    Dépose tes vidéos dans /public/videos/ puis renseigne `src`.
    Exemple : src: '/videos/notebooklm.mp4'
+   Titres et descriptions : modifie title / description ci-dessous.
    Tant que `src` est vide, un placeholder soigné s'affiche.
+   Voir public/videos/README.md pour la procédure complète.
    ============================================================ */
 const demos = [
   {
@@ -41,6 +43,28 @@ const demos = [
     description:
       'Mockups produits, créas publicitaires, miniatures : Nano Banana génère des images prêtes à publier en quelques secondes, dans ta charte.',
     duration: '0:52',
+    src: '',
+    poster: '',
+  },
+  {
+    id: 'deepresearch',
+    tool: 'Deep Research',
+    situation: 'Rédiger',
+    title: 'Un dossier de recherche sourcé, pendant que tu dînes',
+    description:
+      'Décris ton sujet : Gemini fouille des dizaines de sources et te rend un rapport structuré, avec les citations. Ton exposé est prêt avant la fin de la série que tu regardes.',
+    duration: '1:05',
+    src: '',
+    poster: '',
+  },
+  {
+    id: 'gemini',
+    tool: 'Gemini',
+    situation: 'Au quotidien',
+    title: 'Le ChatGPT que tu connais, en bien plus puissant',
+    description:
+      'Tu demandes tout à ChatGPT ? Passe à sa version premium : réponses en profondeur, mémoire de tes discussions, fichiers joints — et des limites doublées pour les étudiants.',
+    duration: '0:41',
     src: '',
     poster: '',
   },
@@ -173,12 +197,12 @@ export function VideoDemos() {
             que <em className="italic text-accent">mille mots</em>.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            Trois outils inclus dans l&apos;offre, filmés en situation réelle. Format vertical, lecture
+            Cinq outils inclus dans l&apos;offre, filmés en situation réelle. Format vertical, lecture
             directement dans la page.
           </p>
         </motion.div>
 
-        {/* Grille des 3 vidéos */}
+        {/* Grille des 5 vidéos */}
         <div className="mt-12 grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-6 lg:gap-8">
           {demos.map((demo, i) => (
             <DemoCard key={demo.id} demo={demo} index={i} />
