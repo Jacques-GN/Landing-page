@@ -57,6 +57,16 @@ Les textes affichés **sous chaque vidéo** se modifient dans le même tableau `
 - **`situation`** : le mot du badge en haut à droite de la vidéo (Réviser, Créer, Vendre, Rédiger, Au quotidien…).
 - **`duration`** : ajuste-la à la durée réelle de la vidéo une fois déposée.
 
+## Lecture automatique au scroll
+
+**Rien à configurer — c'est automatique.** Chaque vidéo branchée (champ `src` renseigné) se comporte comme sur TikTok :
+
+- Elle **démarre toute seule (en muet, en boucle)** dès qu'elle entre dans la zone centrale de l'écran pendant le scroll.
+- Elle **se met en pause** dès qu'elle sort de l'écran — pas de data gaspillée sur mobile.
+- Le visiteur peut **activer le son** ou avancer dans la vidéo via les contrôles natifs.
+- S'il met lui-même une vidéo en pause, **elle ne redémarre pas toute seule** au prochain passage (son choix est respecté).
+- Les appareils configurés en « animation réduite » (accessibilité) ne déclenchent pas d'auto-lecture ; le bouton play reste disponible.
+
 ## Conseils d'encodage
 
 - Résolution recommandée : **1080 × 1920** (9:16)

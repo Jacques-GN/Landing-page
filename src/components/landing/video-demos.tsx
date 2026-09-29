@@ -1,6 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useEffect, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { Play } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -72,6 +73,55 @@ const demos = [
 
 type Demo = (typeof demos)[number]
 
+/* ============================================================
+   LECTURE AUTOMATIQUE AU SCROLL
+   Démarre en muet quand la vidéo entre à l'écran (bande centrale
+   du viewport), se met en pause quand elle en sort.
+   - Si l'utilisateur met lui-même en pause, on ne relance pas.
+   - Respecte prefers-reduced-motion (pas d'auto-lecture).
+   ============================================================ */
+function AutoplayVideo({ demo }: { demo: Demo }) {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const userPausedRef = useRef(false)
+  const inView = useInView(videoRef, { margin: '-20% 0px -20% 0px' })
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (inView && !userPausedRef.current && !reducedMotion) {
+      // Muted + playsInline : lecture autorisée par tous les navigateurs.
+      // Le catch couvre iOS en mode économie d'énergie (bouton lecture dispo).
+      video.play().catch(() => {})
+    } else if (!inView) {
+      video.pause()
+    }
+  }, [inView])
+
+  return (
+    <video
+      ref={videoRef}
+      className="h-full w-full object-cover"
+      src={demo.src}
+      poster={demo.poster || undefined}
+      controls
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      // Pause pendant que la vidéo est visible = choix utilisateur → on le respecte
+      onPause={() => {
+        if (inView) userPausedRef.current = true
+      }}
+      onPlay={() => {
+        userPausedRef.current = false
+      }}
+      aria-label={`Démonstration : ${demo.title}`}
+    />
+  )
+}
+
 function DemoCard({ demo, index }: { demo: Demo; index: number }) {
   const hasVideo = demo.src.length > 0
 
@@ -106,15 +156,7 @@ function DemoCard({ demo, index }: { demo: Demo; index: number }) {
         </span>
 
         {hasVideo ? (
-          <video
-            className="h-full w-full object-cover"
-            src={demo.src}
-            poster={demo.poster || undefined}
-            controls
-            playsInline
-            preload="metadata"
-            aria-label={`Démonstration : ${demo.title}`}
-          />
+          <AutoplayVideo demo={demo} />
         ) : (
           <div
             className="relative flex h-full w-full flex-col items-center justify-center gap-5 p-6"
