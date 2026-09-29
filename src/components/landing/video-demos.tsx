@@ -21,7 +21,7 @@ const demos = [
     description:
       'NotebookLM lit tes documents et te rend résumés, flashcards, quiz et même un podcast audio. Tu révises en marchant.',
     duration: '0:45',
-    src: '',
+    src: 'public/videos/video1.mp4',
     poster: '',
   },
   {
