@@ -48,6 +48,17 @@ const demos = [
     poster: '',
   },
   {
+    id: 'veo',
+    tool: 'Veo',
+    situation: 'Imaginer',
+    title: "Une pub animée complète, à partir d'un simple texte",
+    description:
+      "Décris ton idée — couleurs, ambiance, mouvements de caméra — et Veo réalise le film. Cette démo a été générée entièrement par IA, prompt par prompt.",
+    duration: '0:17',
+    src: '/videos/veo.mp4',
+    poster: '',
+  },
+  {
     id: 'deepresearch',
     tool: 'Deep Research',
     situation: 'Rédiger',
@@ -239,12 +250,12 @@ export function VideoDemos() {
             que <em className="italic text-accent">mille mots</em>.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            Cinq outils inclus dans l&apos;offre, filmés en situation réelle. Format vertical, lecture
+            Six outils inclus dans l&apos;offre, filmés en situation réelle. Format vertical, lecture
             directement dans la page.
           </p>
         </motion.div>
 
-        {/* Grille des 5 vidéos */}
+        {/* Grille des 6 vidéos */}
         <div className="mt-12 grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-6 lg:gap-8">
           {demos.map((demo, i) => (
             <DemoCard key={demo.id} demo={demo} index={i} />

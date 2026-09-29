@@ -1,20 +1,21 @@
 # 📹 Vidéos de démonstration
 
-Ce dossier accueille les **5 vidéos verticales** (format **9:16** — Shorts / Reels / TikTok) affichées dans la section « Les démos » de la landing page.
+Ce dossier accueille les **6 vidéos verticales** (format **9:16** — Shorts / Reels / TikTok) affichées dans la section « Les démos » de la landing page.
 
 Tant qu'une vidéo n'est pas déposée, la landing affiche un **placeholder soigné** à sa place — tu peux donc mettre le site en ligne sans attendre, puis ajouter les vidéos une par une, quand tu veux.
 
 Tout se configure dans **un seul fichier** : `src/components/landing/video-demos.tsx` (tableau `demos`, tout en haut du fichier).
 
-## Les 5 emplacements
+## Les 6 emplacements
 
 | # | Fichier à déposer | Outil | Badge | Titre affiché |
 | --- | --- | --- | --- | --- |
 | 01 | `notebooklm.mp4` | NotebookLM | Réviser | Tes PDF de cours, résumés en 10 secondes |
 | 02 | `flow.mp4` | Google Flow | Créer | Les vidéos IA que tu vois sur TikTok |
 | 03 | `banana.mp4` | Nano Banana | Vendre | Des visuels qui arrêtent le scroll |
-| 04 | `deepresearch.mp4` | Deep Research | Rédiger | Un dossier de recherche sourcé, pendant que tu dînes |
-| 05 | `gemini.mp4` | Gemini | Au quotidien | Le ChatGPT que tu connais, en bien plus puissant |
+| 04 | `veo.mp4` | Veo | Imaginer | Une pub animée complète, à partir d'un simple texte |
+| 05 | `deepresearch.mp4` | Deep Research | Rédiger | Un dossier de recherche sourcé, pendant que tu dînes |
+| 06 | `gemini.mp4` | Gemini | Au quotidien | Le ChatGPT que tu connais, en bien plus puissant |
 
 ## Comment ajouter une vidéo
 
@@ -54,8 +55,32 @@ Les textes affichés **sous chaque vidéo** se modifient dans le même tableau `
 - **`title`** : une phrase courte et concrète, centrée sur le résultat pour l'étudiant (« Tes PDF… résumés en 10 secondes » plutôt que « Fonctionnalité de résumé »).
 - **`description`** : une à deux phrases, action + bénéfice concret. Reste sous ~180 caractères pour que le texte ne devienne pas trop long sur mobile.
 - **`tool`** : nom de l'outil, affiché en tout petit au-dessus du titre.
-- **`situation`** : le mot du badge en haut à droite de la vidéo (Réviser, Créer, Vendre, Rédiger, Au quotidien…).
+- **`situation`** : le mot du badge en haut à droite de la vidéo (Réviser, Créer, Vendre, Imaginer, Rédiger, Au quotidien…).
 - **`duration`** : ajuste-la à la durée réelle de la vidéo une fois déposée.
+
+## Poids des vidéos : les vraies limites et la solution
+
+**Pourquoi viser ~8 Mo ?** Ce n'est pas une limite du site, c'est une **recommandation pour tes visiteurs** :
+
+- Les vidéos démarrent **automatiquement** pendant le scroll. Un visiteur qui parcourt la page télécharge chaque vidéo : 6 vidéos × 30 Mo = **180 Mo de data mobile** pour une seule visite. Sur forfait limité, personne ne reste.
+- Une vidéo de 8 Mo se lance en ~2 s en 4G ; à 30 Mo, elle met 8–10 s à démarrer — le visiteur a déjà scrollé.
+
+**La limite qui bloque réellement : GitHub.** L'upload via le site web de GitHub **refuse les fichiers de plus de 25 Mo**. C'est pour ça que des vidéos de 30 Mo ne passent pas. (En ligne de commande git, la limite est 100 Mo — mais le dépôt devient très lourd, à éviter aussi.)
+
+**La solution : compresser.** Une vidéo 9:16 destinée à un écran de téléphone n'a pas besoin de 30 Mo — la différence est invisible à l'œil une fois compressée proprement :
+
+```bash
+# Compresse n'importe quelle vidéo vers ~5–8 Mo (qualité excellente sur mobile)
+ffmpeg -i TA_VIDEO.mp4 -vcodec libx264 -crf 30 -vf scale=720:-2 -acodec aac -b:a 96k -movflags +faststart sortie.mp4
+```
+
+- `-crf 30` : niveau de compression (28 = très haute qualité, 30 = parfait pour mobile, 32 = plus petit encore)
+- `scale=720:-2` : 720 px de large suffit largement sur téléphone
+- `+faststart` : lecture instantanée (index en tête de fichier)
+
+**Ou plus simple : envoie-moi les vidéos directement dans la conversation** — je les compresse, les optimise et les branche à ta place.
+
+> ⚠️ **Ne renomme jamais un fichier vidéo via le site web de GitHub** (bouton crayon) : ça détruit le contenu binaire. Uploade le fichier sous son bon nom directement, ou passe par moi.
 
 ## Lecture automatique au scroll
 
@@ -69,7 +94,7 @@ Les textes affichés **sous chaque vidéo** se modifient dans le même tableau `
 
 ## Conseils d'encodage
 
-- Résolution recommandée : **1080 × 1920** (9:16)
-- Codec : H.264, MP4, poids < 8 Mo par vidéo
+- Résolution recommandée : **1080 × 1920** ou **720 × 1280** (9:16)
+- Codec : H.264, MP4, poids visé **~8 Mo max par vidéo** (voir la section « Poids des vidéos » au-dessus)
   (`ffmpeg -i input.mov -vcodec h264 -crf 28 -vf scale=1080:-2 output.mp4`)
 - Ajoute un `poster` JPEG pour un rendu propre avant la première lecture.
