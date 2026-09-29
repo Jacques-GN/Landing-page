@@ -21,7 +21,7 @@ const demos = [
     description:
       'NotebookLM lit tes documents et te rend résumés, flashcards, quiz et même un podcast audio. Tu révises en marchant.',
     duration: '0:45',
-    src: 'public/videos/video1.mp4',
+    src: '/videos/Video1.mp4',
     poster: '',
   },
   {
@@ -32,7 +32,7 @@ const demos = [
     description:
       'Le studio propulsé par Veo : décris ta scène, obtiens des clips verticaux prêts pour TikTok, Reels et Shorts — sans caméra ni monteur.',
     duration: '0:38',
-    src: '',
+    src: '/videos/video2.mp4',
     poster: '',
   },
   {
@@ -41,7 +41,7 @@ const demos = [
     situation: 'Vendre',
     title: 'Des visuels qui arrêtent le scroll',
     description:
-      'Mockups produits, créas publicitaires, miniatures : Nano Banana génère des images prêtes à publier en quelques secondes, dans ta charte.',
+      'Mockups produits, créas publicitaires, miniatures : Nano Banana génère des images prêts à publier en quelques secondes, dans ta charte.',
     duration: '0:52',
     src: '',
     poster: '',
@@ -126,7 +126,7 @@ function DemoCard({ demo, index }: { demo: Demo; index: number }) {
             {/* Faux bouton lecture — purement décoratif tant que la vidéo n'est pas branchée */}
             <div
               aria-hidden="true"
-              className="relative flex h-14 w-14 items-center justify-center rounded-full border border-foreground/20 bg-background/60 text-foreground backdrop-blur-sm transition-all duration-300 group-hover:border-accent group-hover:text-accent"
+              className="relative flex h-14 w-14 items-center justify-center rounded-full border border-foreground/20 bg-background/60 text-foreground backdrop-blur-sm transition-all duration-300 group-hover:border-foreground/40"
             >
               <Play className="ml-0.5 h-5 w-5 fill-current" />
             </div>
