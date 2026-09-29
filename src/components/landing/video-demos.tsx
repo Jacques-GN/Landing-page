@@ -76,7 +76,7 @@ const demos = [
     title: 'Le ChatGPT que tu connais, en bien plus puissant',
     description:
       'Tu demandes tout à ChatGPT ? Passe à sa version premium : réponses en profondeur, mémoire de tes discussions, fichiers joints — et des limites doublées pour les étudiants.',
-    duration: '0:44',
+    duration: '1:12',
     src: '/videos/gemini.mp4',
     poster: '',
   },
