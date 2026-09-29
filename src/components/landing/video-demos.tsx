@@ -21,8 +21,8 @@ const demos = [
     title: 'Tes PDF de cours, résumés en 10 secondes',
     description:
       'NotebookLM lit tes documents et te rend résumés, flashcards, quiz et même un podcast audio. Tu révises en marchant.',
-    duration: '1:00',
-    src: '/videos/notebooklm.mp4',
+    duration: '0:45',
+    src: '',
     poster: '',
   },
   {
@@ -32,7 +32,7 @@ const demos = [
     title: 'Les vidéos IA que tu vois sur TikTok',
     description:
       'Le studio propulsé par Veo : décris ta scène, obtiens des clips verticaux prêts pour TikTok, Reels et Shorts — sans caméra ni monteur.',
-    duration: '0:17',
+    duration: '0:39',
     src: '/videos/flow.mp4',
     poster: '',
   },
@@ -43,8 +43,8 @@ const demos = [
     title: 'Des visuels qui arrêtent le scroll',
     description:
       'Mockups produits, créas publicitaires, miniatures : Nano Banana génère des images prêtes à publier en quelques secondes, dans ta charte.',
-    duration: '0:52',
-    src: '',
+    duration: '1:00',
+    src: '/videos/banana.mp4',
     poster: '',
   },
   {
@@ -65,8 +65,8 @@ const demos = [
     title: 'Le ChatGPT que tu connais, en bien plus puissant',
     description:
       'Tu demandes tout à ChatGPT ? Passe à sa version premium : réponses en profondeur, mémoire de tes discussions, fichiers joints — et des limites doublées pour les étudiants.',
-    duration: '0:41',
-    src: '',
+    duration: '0:44',
+    src: '/videos/gemini.mp4',
     poster: '',
   },
 ] as const
