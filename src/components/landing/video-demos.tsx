@@ -6,34 +6,33 @@ import { Play } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 /* ============================================================
-   CONFIG DES 5 DÉMOS
+   CONFIG DES 5 DÉMOS — ordre du plus pertinent au moins pertinent
    Dépose tes vidéos dans /public/videos/ puis renseigne `src`.
-   Exemple : src: '/videos/notebooklm.mp4'
    Titres et descriptions : modifie title / description ci-dessous.
    Tant que `src` est vide, un placeholder soigné s'affiche.
    Voir public/videos/README.md pour la procédure complète.
    ============================================================ */
 const demos = [
   {
-    id: 'notebooklm',
-    tool: 'NotebookLM',
+    id: 'reviser',
+    tool: 'Gemini',
     situation: 'Réviser',
-    title: 'Tes PDF de cours, résumés en 10 secondes',
+    title: 'Examen demain ? Ton PDF devient fiches et quiz',
     description:
-      'NotebookLM lit tes documents et te rend résumés, flashcards, quiz et même un podcast audio. Tu révises en marchant.',
-    duration: '0:45',
-    src: '',
+      'La veille de son partiel, une étudiante glisse son PDF de cours dans Gemini : résumé en points clés, quiz pour se tester. Zéro surligneur, zéro nuit blanche.',
+    duration: '0:51',
+    src: '/videos/reviser.mp4',
     poster: '',
   },
   {
-    id: 'flow',
-    tool: 'Google Flow',
-    situation: 'Créer',
-    title: 'Les vidéos IA que tu vois sur TikTok',
+    id: 'gemini',
+    tool: 'Gemini 2.5 Pro',
+    situation: 'Au quotidien',
+    title: 'Le ChatGPT que tu connais, en bien plus puissant',
     description:
-      'Le studio propulsé par Veo : décris ta scène, obtiens des clips verticaux prêts pour TikTok, Reels et Shorts — sans caméra ni monteur.',
-    duration: '0:39',
-    src: '/videos/flow.mp4',
+      'Tu demandes tout à ChatGPT ? Les benchmarks sont sur la table : Gemini 2.5 Pro devant GPT-4.1 et Claude. Mémoire de tes discussions, fichiers joints — et des limites doublées pour les étudiants.',
+    duration: '1:12',
+    src: '/videos/gemini.mp4',
     poster: '',
   },
   {
@@ -59,25 +58,14 @@ const demos = [
     poster: '',
   },
   {
-    id: 'deepresearch',
-    tool: 'Deep Research',
-    situation: 'Rédiger',
-    title: 'Un dossier de recherche sourcé, pendant que tu dînes',
+    id: 'flow',
+    tool: 'Google Flow',
+    situation: 'Créer',
+    title: 'Les vidéos IA que tu vois sur TikTok',
     description:
-      'Décris ton sujet : Gemini fouille des dizaines de sources et te rend un rapport structuré, avec les citations. Ton exposé est prêt avant la fin de la série que tu regardes.',
-    duration: '1:05',
-    src: '',
-    poster: '',
-  },
-  {
-    id: 'gemini',
-    tool: 'Gemini',
-    situation: 'Au quotidien',
-    title: 'Le ChatGPT que tu connais, en bien plus puissant',
-    description:
-      'Tu demandes tout à ChatGPT ? Passe à sa version premium : réponses en profondeur, mémoire de tes discussions, fichiers joints — et des limites doublées pour les étudiants.',
-    duration: '1:12',
-    src: '/videos/gemini.mp4',
+      'Le studio propulsé par Veo : décris ta scène, obtiens des clips verticaux prêts pour TikTok, Reels et Shorts — sans caméra ni monteur.',
+    duration: '0:39',
+    src: '/videos/flow.mp4',
     poster: '',
   },
 ] as const
@@ -250,12 +238,12 @@ export function VideoDemos() {
             que <em className="italic text-accent">mille mots</em>.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            Six outils inclus dans l&apos;offre, filmés en situation réelle. Format vertical, lecture
+            Cinq outils inclus dans l&apos;offre, filmés en situation réelle. Format vertical, lecture
             directement dans la page.
           </p>
         </motion.div>
 
-        {/* Grille des 6 vidéos */}
+        {/* Grille des 5 vidéos — classées de la plus parlante à la plus technique */}
         <div className="mt-12 grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-6 lg:gap-8">
           {demos.map((demo, i) => (
             <DemoCard key={demo.id} demo={demo} index={i} />

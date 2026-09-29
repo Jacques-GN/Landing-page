@@ -1,34 +1,33 @@
 # 📹 Vidéos de démonstration
 
-Ce dossier accueille les **6 vidéos verticales** (format **9:16** — Shorts / Reels / TikTok) affichées dans la section « Les démos » de la landing page.
+Ce dossier accueille les **5 vidéos verticales** (format **9:16** — Shorts / Reels / TikTok) affichées dans la section « Les démos » de la landing page. **Les 5 emplacements sont pourvus.**
 
-Tant qu'une vidéo n'est pas déposée, la landing affiche un **placeholder soigné** à sa place — tu peux donc mettre le site en ligne sans attendre, puis ajouter les vidéos une par une, quand tu veux.
+Tant qu'une vidéo n'est pas déposée, la landing affiche un **placeholder soigné** à sa place — pratique si tu veux en remplacer une plus tard.
 
-Tout se configure dans **un seul fichier** : `src/components/landing/video-demos.tsx` (tableau `demos`, tout en haut du fichier).
+Tout se configure dans **un seul fichier** : `src/components/landing/video-demos.tsx` (tableau `demos`, tout en haut du fichier). L'ordre du tableau = l'ordre d'affichage, **du plus pertinent au moins pertinent** (l'ordre actuel est pensé pour capter l'attention : révision → ChatGPT → argent → création).
 
-## Les 6 emplacements
+## Les 5 emplacements
 
-| # | Fichier à déposer | Outil | Badge | Titre affiché |
+| # | Fichier | Outil | Badge | Titre affiché |
 | --- | --- | --- | --- | --- |
-| 01 | `notebooklm.mp4` | NotebookLM | Réviser | Tes PDF de cours, résumés en 10 secondes |
-| 02 | `flow.mp4` | Google Flow | Créer | Les vidéos IA que tu vois sur TikTok |
+| 01 | `reviser.mp4` | Gemini | Réviser | Examen demain ? Ton PDF devient fiches et quiz |
+| 02 | `gemini.mp4` | Gemini 2.5 Pro | Au quotidien | Le ChatGPT que tu connais, en bien plus puissant |
 | 03 | `banana.mp4` | Nano Banana | Vendre | Des visuels qui arrêtent le scroll |
 | 04 | `veo.mp4` | Veo | Imaginer | Une pub animée complète, à partir d'un simple texte |
-| 05 | `deepresearch.mp4` | Deep Research | Rédiger | Un dossier de recherche sourcé, pendant que tu dînes |
-| 06 | `gemini.mp4` | Gemini | Au quotidien | Le ChatGPT que tu connais, en bien plus puissant |
+| 05 | `flow.mp4` | Google Flow | Créer | Les vidéos IA que tu vois sur TikTok |
 
-## Comment ajouter une vidéo
+## Comment remplacer ou ajouter une vidéo
 
 1. **Dépose le fichier** `.mp4` dans ce dossier, nommé comme dans le tableau ci-dessus.
-   Exemple : `public/videos/notebooklm.mp4`
+   Exemple : `public/videos/reviser.mp4`
 2. **Ouvre `src/components/landing/video-demos.tsx`** et, dans le tableau `demos`, renseigne le champ `src` de la carte concernée :
 
    ```ts
    {
-     id: 'notebooklm',
+     id: 'reviser',
      // ...
-     src: '/videos/notebooklm.mp4',            // ← chemin de la vidéo (indispensable)
-     poster: '/videos/notebooklm-poster.jpg',  // (optionnel) image de couverture avant lecture
+     src: '/videos/reviser.mp4',           // ← chemin de la vidéo (indispensable)
+     poster: '/videos/reviser-poster.jpg', // (optionnel) image de couverture avant lecture
    }
    ```
 
@@ -42,20 +41,20 @@ Les textes affichés **sous chaque vidéo** se modifient dans le même tableau `
 
 ```ts
 {
-  id: 'notebooklm',
-  tool: 'NotebookLM',         // petit label au-dessus du titre
-  situation: 'Réviser',       // badge en haut à droite de la vidéo
-  title: 'Tes PDF de cours, résumés en 10 secondes',   // ← LE TITRE (grand, en serif)
+  id: 'reviser',
+  tool: 'Gemini',            // petit label au-dessus du titre
+  situation: 'Réviser',      // badge en haut à droite de la vidéo
+  title: 'Examen demain ? Ton PDF devient fiches et quiz',   // ← LE TITRE (grand, en serif)
   description:
-    'NotebookLM lit tes documents et te rend résumés, flashcards, quiz et même un podcast audio. Tu révises en marchant.',   // ← LA DESCRIPTION
-  duration: '0:45',           // durée affichée sur le placeholder
+    'La veille de son partiel, une étudiante glisse son PDF de cours dans Gemini : résumé en points clés, quiz pour se tester. Zéro surligneur, zéro nuit blanche.',   // ← LA DESCRIPTION
+  duration: '0:51',          // durée affichée sur le placeholder
 }
 ```
 
 - **`title`** : une phrase courte et concrète, centrée sur le résultat pour l'étudiant (« Tes PDF… résumés en 10 secondes » plutôt que « Fonctionnalité de résumé »).
 - **`description`** : une à deux phrases, action + bénéfice concret. Reste sous ~180 caractères pour que le texte ne devienne pas trop long sur mobile.
 - **`tool`** : nom de l'outil, affiché en tout petit au-dessus du titre.
-- **`situation`** : le mot du badge en haut à droite de la vidéo (Réviser, Créer, Vendre, Imaginer, Rédiger, Au quotidien…).
+- **`situation`** : le mot du badge en haut à droite de la vidéo (Réviser, Au quotidien, Vendre, Imaginer, Créer…).
 - **`duration`** : ajuste-la à la durée réelle de la vidéo une fois déposée.
 
 ## Poids des vidéos : les vraies limites et la solution

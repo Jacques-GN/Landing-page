@@ -23,7 +23,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PlusHaut — De meilleures notes avec l'IA : Gemini Advanced, NotebookLM, Veo",
+  title: "PlusHaut — Valide ton année avec l'IA : Gemini Advanced, NotebookLM, Veo",
   description:
     "Tes PDF de cours résumés en fiches et podcasts, Gemini Advanced avec limites doublées, Veo pour les vidéos — pendant 12 mois, activé avec toi, suivi toute l'année. Paiement unique en FCFA, sans carte bancaire. Clôture le 24 décembre.",
   keywords: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "PlusHaut" }],
   openGraph: {
-    title: "PlusHaut — De meilleures notes, sans y passer tes nuits",
+    title: "PlusHaut — Valide ton année, sans ouvrir ton cahier",
     description:
       "NotebookLM transforme tes PDF en fiches et podcasts, Gemini Advanced avec limites 2x, Veo pour les vidéos — 12 mois, activation accompagnée et suivi. Paiement unique en FCFA, clôture le 24 décembre.",
     type: "website",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PlusHaut — De meilleures notes, sans y passer tes nuits",
+    title: "PlusHaut — Valide ton année, sans ouvrir ton cahier",
     description:
       "NotebookLM transforme tes PDF en fiches et podcasts, Gemini Advanced avec limites 2x, Veo pour les vidéos — 12 mois, activation accompagnée et suivi. Paiement unique en FCFA, clôture le 24 décembre.",
   },

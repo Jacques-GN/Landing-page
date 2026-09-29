@@ -14,9 +14,9 @@ const included = [
 ]
 
 const stats = [
-  { value: '9/10', unit: 'étudiants', label: 's’aident déjà de l’IA pour étudier — la plupart en version gratuite, avec ses limites' },
+  { value: '12,53', unit: 'de moyenne', label: 'mon année de L1, validée grâce à l’IA — sans jamais réviser plus d’une heure d’affilée' },
   { value: '2×', unit: 'de limites', label: 'que le gratuit : plus de « quota atteint » en pleine révision' },
-  { value: '12', unit: 'mois', label: 'd’accès complet et de suivi — d’un seul tenant, activés avec toi' },
+  { value: '12', unit: 'mois', label: 'd’accès complet et de suivi, activés avec toi dès le premier jour' },
 ]
 
 const container = {
@@ -85,10 +85,10 @@ export function Hero() {
               variants={item}
               className="font-display mt-5 max-w-2xl text-[2.65rem] font-light leading-[1.06] tracking-[-0.02em] text-foreground sm:text-6xl lg:text-[4.2rem]"
             >
-              De <em className="font-normal italic">meilleures notes</em>.
+              Valide ton <em className="font-normal italic">année</em>.
               <br />
               <span className="text-muted-foreground">
-                Sans y passer tes <em className="font-normal italic text-accent">nuits</em>.
+                Sans ouvrir ton <em className="font-normal italic text-accent">cahier</em>.
               </span>
             </motion.h1>
 
@@ -97,13 +97,12 @@ export function Hero() {
               variants={item}
               className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
             >
-              Tu demandes déjà tout à ChatGPT&nbsp;? Passe à la version payante de
-              Google.{' '}
+              Tu n&apos;arrives pas à bosser sur un PDF&nbsp;? Tu crains déjà le rattrapage
+              d&apos;août, pendant que les autres seront en vacances&nbsp;?{' '}
               <span className="mark font-medium text-foreground">NotebookLM</span> avale
-              tes PDF de cours et t’en fait des fiches, des quiz, même un podcast à
-              écouter dans le bus. Le soir, les mêmes outils te rapportent tes
-              premiers billets. Un seul paiement, sans carte bancaire, sur ton
-              propre compte.
+              tes cours et t&apos;en fait fiches, quiz et podcast à écouter dans le bus. Et
+              le soir, les mêmes outils te rapportent tes premiers billets. Un seul
+              paiement, sur ton propre compte.
             </motion.p>
 
             {/* CTAs */}
@@ -125,7 +124,7 @@ export function Hero() {
                 href="#demos"
                 className="link-editorial inline-flex h-12 items-center gap-1.5 self-start text-base font-medium text-foreground sm:self-auto"
               >
-                Voir les démos — 30 secondes chacune
+                Voir les démos — la preuve en vidéo
                 <ArrowUpRight className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
               </a>
             </motion.div>
